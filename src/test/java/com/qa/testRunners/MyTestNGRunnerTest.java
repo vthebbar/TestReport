@@ -8,7 +8,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		plugin = {"pretty", "json:target/cucumber/Cucumber_report.json", "html:target/cucumber/Cucumber_report.html","summary"},
+		plugin = {"pretty","json:target/cucumber/Cucumber_report.html","json:target/cucumber/Cucumber_report.json","summary"},
 		features="src/test/resources/Features",
 		glue={"com.qa.stepDef", "com.qa.hooks"},
 		dryRun=false,

@@ -29,11 +29,12 @@ public class MyHooks {
 	@After
 	public void after(Scenario scenario) {
 		
-		if (scenario.isFailed()) {
-            // Take a screenshot and attach it to the scenario
-            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "Failed Test Screenshot");
-        }
+		
+		  if (scenario.isFailed()) { // Take a screenshot and attach it to the scenario
+		  byte[] screenshot = ((TakesScreenshot)
+		  driver).getScreenshotAs(OutputType.BYTES); scenario.attach(screenshot,
+		  "image/png", "Failed Test Screenshot"); }
+		 
 		
 		driver.quit();
 	}

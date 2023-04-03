@@ -8,4 +8,4 @@ Feature: Login
 
     Examples: 
       | userName   | password   |
-      | connect112 | Connect321 |
+      | connect111 | Connect321 |

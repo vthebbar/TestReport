@@ -3,6 +3,7 @@ com/qa/pages/LogoutPage.class
 com/qa/hooks/MyHooks.class
 com/qa/stepDef/LoginStepDef.class
 com/qa/constants/MyConstants.class
+com/qa/factory/PageObjectFactoryManager.class
 com/qa/pages/HomePage.class
 com/qa/testRunners/MyTestNGRunnerTest.class
 com/qa/pages/LoginPage.class
