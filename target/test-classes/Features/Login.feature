@@ -8,4 +8,4 @@ Feature: Login
 
     Examples: 
       | userName   | password   |
-      | connect111 | Connect321 |
+      | devuat0 | Testing168 |
