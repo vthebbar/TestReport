@@ -7,5 +7,5 @@ Feature: Login
     Then login should be successful
 
     Examples: 
-      | userName   | password   |
+      | userName | password   |
       | devuat01 | Testing168 |
