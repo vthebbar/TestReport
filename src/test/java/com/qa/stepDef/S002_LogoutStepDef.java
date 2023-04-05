@@ -14,7 +14,7 @@ import com.qa.pages.LogoutPage;
 
 import io.cucumber.java.en.*;
 
-public class LogoutStepDef {
+public class S002_LogoutStepDef {
 	WebDriver driver;
 	HomePage homePage;
 	LogoutPage logoutPage;

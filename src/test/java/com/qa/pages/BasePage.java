@@ -10,9 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.qa.constants.MyConstants;
-
-import utils.PropertyManager;
-import utils.TestUtils;
+import com.qa.utils.PropertyManager;
+import com.qa.utils.TestUtils;
 
 public class BasePage {
 

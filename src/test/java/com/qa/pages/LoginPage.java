@@ -5,13 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import utils.PropertyManager;
+import com.qa.utils.PropertyManager;
 
 public class LoginPage extends BasePage {
 	
 	@FindBy(id="login_id") private WebElement txtUserName;
 	@FindBy(id="login_pswd") private WebElement txtPassword;
 	@FindBy(id="idBtnLoginSubmit") private WebElement btnLogin;
+	@FindBy(xpath="//a[normalize-space()='Forgot username/password']") private WebElement lnkForgotUserpwd;
+	
 	
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -61,5 +63,22 @@ public class LoginPage extends BasePage {
 //		wait.until(ExpectedConditions.visibilityOf(btnLogin)).click();
 
 		return new HomePage(driver);
+	}
+	
+	
+	public void verifyUsernameFieldIsDisplayed() {
+		
+		doAssertEqualsBoolean(isDisplayed(txtUserName, "User name"), true, "Username");
+	}
+	
+	public void verifyPasswordFieldIsDisplayed() {
+		
+		doAssertEqualsBoolean(isDisplayed(txtUserName, "Password"), true, "Password");
+
+	}
+	
+	public void verifyLoginBtnIsDisplayed() {
+		doAssertEqualsBoolean(isDisplayed(txtUserName, "Login button"), true, "Login button");
+
 	}
 }

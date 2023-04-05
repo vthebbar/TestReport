@@ -14,7 +14,7 @@ import com.qa.pages.LoginPage;
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LoginStepDef {
+public class S001_LoginStepDef {
 
 	WebDriver driver;
 	HomePage homePage;

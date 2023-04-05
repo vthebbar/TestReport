@@ -1,4 +1,4 @@
-package utils;
+package com.qa.utils;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
