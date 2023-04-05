@@ -1,4 +1,4 @@
-package utils;
+package com.qa.utils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,4 +19,6 @@ public class TestUtils {
 		Date date = new Date();
 		return dateFormat.format(date);
 	}
+	
+	
 }

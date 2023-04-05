@@ -1,6 +1,6 @@
-Feature: Logout
+Feature: S002_Logout
 
-  Scenario: Logout after successful login
+  Scenario: S002_TC01_Logout after successful login
     Given I m logged in
     When I click on Logout button
     Then I should be loggedout successfully
