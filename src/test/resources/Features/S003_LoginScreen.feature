@@ -15,8 +15,8 @@ Feature: S003_Login screen(before login) features
   Scenario: S003_TC03_Verify that Register for Online Banking option is working
     When I click on Register for Online Banking button
     Then I m navigated to REGISTER FOR ONLINE BANKING screen
-    And Using an Account Number option is displayed with Proceed button
-    And Using an ATM Card option is displayed with Proceed button
+    And Using an Account Number option is displayed with Proceed button for online banking registration
+    And Using an ATM Card option is displayed with Proceed button for online banking registration
 
   Scenario: S003_TC04_Verify Terms & Conditions link is working
     When I click on Terms & Conditions link
