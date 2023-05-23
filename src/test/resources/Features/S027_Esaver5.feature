@@ -167,6 +167,7 @@ Feature: S027_ Esaver feature - Close Account
       | AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | ToAcct           |
       |               0 | Interest Rate    | 3rd Party HLB Account Transfer | Non-Favorite | 1010001000058932 |
 
+	
   #Scenario Outline: S027_TC08_Verify Close Account (3rd Party HLB Account Transferr) Confirmation detail screen [Non-Favourite]
     #[
     #			The Close Account (3rd Party HLB Account Transfer) Confirmation detail screen should show and allow user as below
