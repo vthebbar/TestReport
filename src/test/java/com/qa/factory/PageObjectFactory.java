@@ -13,6 +13,7 @@ import com.qa.pages.CreateUpdateNoteVirtualCardPage;
 import com.qa.pages.ESaverCloseAccountPage;
 import com.qa.pages.ESaverCreateAccountPage;
 import com.qa.pages.ESaverPersonalizeAccountPage;
+import com.qa.pages.ESaverViewApplicationHistoryPage;
 import com.qa.pages.FAQPage;
 import com.qa.pages.FixedDepositOverviewPage;
 import com.qa.pages.FixedDepositPlacementDetailPage;
@@ -85,6 +86,7 @@ public class PageObjectFactory {
 	private static ESaverCreateAccountPage eSaverCreateAccountPage;
 	private static ESaverPersonalizeAccountPage eSaverPersonalizeAccountPage;
 	private static ESaverCloseAccountPage eSaverCloseAccountPage;
+	private static ESaverViewApplicationHistoryPage eSaverViewApplicationHistoryPage;
 	
 	public static HomePage getHomePage(WebDriver driver) {
 		
@@ -292,5 +294,10 @@ public class PageObjectFactory {
 	public static ESaverCloseAccountPage getESaverCloseAccountPage(WebDriver driver) {
 		
 		return eSaverCloseAccountPage == null ? new ESaverCloseAccountPage(driver) :eSaverCloseAccountPage;
+	}
+	
+	public static ESaverViewApplicationHistoryPage getESaverViewApplicationHistoryPage(WebDriver driver) {
+		
+		return eSaverViewApplicationHistoryPage == null ? new ESaverViewApplicationHistoryPage(driver) : eSaverViewApplicationHistoryPage;
 	}
 }

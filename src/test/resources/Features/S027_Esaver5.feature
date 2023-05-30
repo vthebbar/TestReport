@@ -118,7 +118,7 @@ Feature: S027_ Esaver feature - Close Account
       | AcctNumIndexVal | ReasonForClosing | TransferType         | OwnAcctNumIndexVal |
       |               1 | Interest Rate    | Own Account Transfer |                  1 |
 
-  Scenario Outline: S027_TC06_Verify Close Account (3rd Party HLB Account Transfer) screen
+  Scenario Outline: S027_TC06_Verify Close Account (3rd Party HLB Account Transfer) screen [Favourite]
     [
     The Close Account screen should show as below
     1. Users to be able to select the Account via dropdown
@@ -145,8 +145,7 @@ Feature: S027_ Esaver feature - Close Account
     Examples: 
       | AcctNumIndexVal | ReasonForClosing | TransferType                   |
       |               0 | Interest Rate    | 3rd Party HLB Account Transfer |
-	
-	@TEST
+
   Scenario Outline: S027_TC07_Verify Close Account (3rd Party HLB Account Transfer) without input the Recipient Reference
     [
       The Close Account screen should show and allow user as below
@@ -167,69 +166,169 @@ Feature: S027_ Esaver feature - Close Account
       | AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | ToAcct           |
       |               0 | Interest Rate    | 3rd Party HLB Account Transfer | Non-Favorite | 1010001000058932 |
 
-	
-  #Scenario Outline: S027_TC08_Verify Close Account (3rd Party HLB Account Transferr) Confirmation detail screen [Non-Favourite]
-    #[
-    #			The Close Account (3rd Party HLB Account Transfer) Confirmation detail screen should show and allow user as below
-    #	1. Account information 
-    #	2. Product Information 
-    #	3. Settlement Balance information 
-    #	4. Closing Fee information 
-    #	5. Total Amount information 
-    #	6. Reason For Closing information 
-    #	7. Transfer Type information (3rd Party HLB Account Transfer)
-    #	8. To Account information 
-    #	9. Recipient Reference information 
-    #	10. User to be key in the Enter TAC and then click submit
-    #]
-#
-    #When I select the Account Number "<AcctNumIndexVal>" in E-Saver Close Account - Enter Details Section
-    #And I select the Reason for Closing "<ReasonForClosing>" in E-Saver Close Account - Enter Details Section
-    #And I select the Transfer Type "<TransferType>" in E-Saver Close Account - Enter Details Section
-    #And I select the Account category "<AcctCategory>" in E-Saver Close Account - Enter Details Section
-    #And I key in To Account "<ToAcct>" in E-Saver Close Account - Enter Details Section
-    #And I key in the value "<RecipientRef>" in Recipient Reference field in E-Saver Close Account - Enter Details Section
-    #And I key in the value "<Desc>" in Description field in E-Saver Close Account - Enter Details Section
-    #And I click on Next button in E-Saver Close Account - Enter Details Section
-    #Then Verify the  E-Saver Close Account - Confirm Details Section for third party account transfer
-#
-    #Examples: 
-      #| AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | ToAcct           | RecipientRef    | Desc            |
-      #|               0 | Interest Rate    | 3rd Party HLB Account Transfer | Non-Favorite | 1010001000058932 | EsaverClose3rdp | testCloseEsaver |
-#
-  #Scenario Outline: S027_TC09_Verify Close Account (3rd Party HLB Account Transfer) Acknowledgement screen [Non-Favourite]
-    #[
-    #The Close Account (3rd Party HLB Account Transfer) Acknowledgement screen should show user as below
-    #1. Reference Number informaiton 
-    #2. Account information 
-    #3. Product Information 
-    #4. Settlement Balance information 
-    #5. Closing Fee information 
-    #6. Total Amount information 
-    #7. Reason For Closing information 
-    #8. Transfer Type information (3rd Party HLB Account Transfer)
-    #9. To Account information 
-    #10. Recipient Reference information and Done button
-    #11. Message show "You've successfully closed your E-Saver account"
-    #
-    #]
-#
-    #When I select the Account Number "<AcctNumIndexVal>" in E-Saver Close Account - Enter Details Section
-    #And I select the Reason for Closing "<ReasonForClosing>" in E-Saver Close Account - Enter Details Section
-    #And I select the Transfer Type "<TransferType>" in E-Saver Close Account - Enter Details Section
-    #And I select the Account category "<AcctCategory>" in E-Saver Close Account - Enter Details Section
-    #And I key in To Account "<ToAcct>" in E-Saver Close Account - Enter Details Section
-    #And I key in the value "<RecipientRef>" in Recipient Reference field in E-Saver Close Account - Enter Details Section
-    #And I key in the value "<Desc>" in Description field in E-Saver Close Account - Enter Details Section
-    #And I click on Next button in E-Saver Close Account - Enter Details Section
-    #And I key in TAC in  E-Saver Close Account - Confirm Details Section
-    #And I click on Submit button in E-Saver Close Account - Confirm Details Section
-    #Then Verify the success mesage in E-Saver Close Account - Acknowledgement Section
-      #| You've successfully closed your E-Saver account. |
-    #And Verify the other details in E-Saver Close Account - Acknowledgement Section - third party
-    #And I click on Done button in E-Saver Close Account - Acknowledgement Section
-    #Then I m navigated to home page
-#
-    #Examples: 
-      #| AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | ToAcct           | RecipientRef    | Desc            |
-      #|               0 | Interest Rate    | 3rd Party HLB Account Transfer | Non-Favorite | 1010001000058932 | EsaverClose3rdp | testCloseEsaver |
+  Scenario Outline: S027_TC08_Verify Close Account (3rd Party HLB Account Transferr) Confirmation detail screen [Non-Favourite]
+    [
+    			The Close Account (3rd Party HLB Account Transfer) Confirmation detail screen should show and allow user as below
+    	1. Account information 
+    	2. Product Information 
+    	3. Settlement Balance information 
+    	4. Closing Fee information 
+    	5. Total Amount information 
+    	6. Reason For Closing information 
+    	7. Transfer Type information (3rd Party HLB Account Transfer)
+    	8. To Account information 
+    	9. Recipient Reference information 
+    	10. User to be key in the Enter TAC and then click submit
+    ]
+
+    When I select the Account Number "<AcctNumIndexVal>" in E-Saver Close Account - Enter Details Section
+    And I select the Reason for Closing "<ReasonForClosing>" in E-Saver Close Account - Enter Details Section
+    And I select the Transfer Type "<TransferType>" in E-Saver Close Account - Enter Details Section
+    And I select the Account category "<AcctCategory>" in E-Saver Close Account - Enter Details Section
+    And I key in To Account "<ToAcct>" in E-Saver Close Account - Enter Details Section
+    And I key in the value "<RecipientRef>" in Recipient Reference field in E-Saver Close Account - Enter Details Section
+    And I key in the value "<Desc>" in Description field in E-Saver Close Account - Enter Details Section
+    And I click on Next button in E-Saver Close Account - Enter Details Section
+    Then Verify the  E-Saver Close Account - Confirm Details Section for third party account transfer
+
+    Examples: 
+      | AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | ToAcct           | RecipientRef    | Desc            |
+      |               0 | Interest Rate    | 3rd Party HLB Account Transfer | Non-Favorite | 1010001000058932 | EsaverClose3rdp | testCloseEsaver |
+
+  Scenario Outline: S027_TC09_Verify Close Account (3rd Party HLB Account Transfer) Acknowledgement screen [Non-Favourite]
+    [
+    The Close Account (3rd Party HLB Account Transfer) Acknowledgement screen should show user as below
+    1. Reference Number informaiton 
+    2. Account information 
+    3. Product Information 
+    4. Settlement Balance information 
+    5. Closing Fee information 
+    6. Total Amount information 
+    7. Reason For Closing information 
+    8. Transfer Type information (3rd Party HLB Account Transfer)
+    9. To Account information 
+    10. Recipient Reference information and Done button
+    11. Message show "You've successfully closed your E-Saver account"
+    
+    ]
+
+    When I select the Account Number "<AcctNumIndexVal>" in E-Saver Close Account - Enter Details Section
+    And I select the Reason for Closing "<ReasonForClosing>" in E-Saver Close Account - Enter Details Section
+    And I select the Transfer Type "<TransferType>" in E-Saver Close Account - Enter Details Section
+    And I select the Account category "<AcctCategory>" in E-Saver Close Account - Enter Details Section
+    And I key in To Account "<ToAcct>" in E-Saver Close Account - Enter Details Section
+    And I key in the value "<RecipientRef>" in Recipient Reference field in E-Saver Close Account - Enter Details Section
+    And I key in the value "<Desc>" in Description field in E-Saver Close Account - Enter Details Section
+    And I click on Next button in E-Saver Close Account - Enter Details Section
+    And I key in TAC in  E-Saver Close Account - Confirm Details Section
+    And I click on Submit button in E-Saver Close Account - Confirm Details Section
+    Then Verify the success mesage in E-Saver Close Account - Acknowledgement Section
+      | You've successfully closed your E-Saver account. |
+    And Verify the other details in E-Saver Close Account - Acknowledgement Section - third party
+    And I click on Done button in E-Saver Close Account - Acknowledgement Section
+    Then I m navigated to home page
+
+    Examples: 
+      | AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | ToAcct           | RecipientRef    | Desc            |
+      |               0 | Interest Rate    | 3rd Party HLB Account Transfer | Non-Favorite | 1010001000058932 | EsaverClose3rdp | testCloseEsaver |
+
+  Scenario Outline: S027_TC10_Verify Close Account (3rd Party HLB Account Transferr) Confirmation detail screen [Favourite]
+    [
+    The Close Account (3rd Party HLB Account Transfer) Confirmation detail screen should show user as below
+    1. Account information 
+    2. Product Information 
+    3. Settlement Balance information 
+    4. Closing Fee information 
+    5. Total Amount information 
+    6. Reason For Closing information 
+    7. Transfer Type information (3rd Party HLB Account Transfer)
+    8. To Account information 
+    9. Recipient Reference information 
+    10. User to be key in the Enter TAC and then click submit	
+    ]
+
+    When I select the Account Number "<AcctNumIndexVal>" in E-Saver Close Account - Enter Details Section
+    And I select the Reason for Closing "<ReasonForClosing>" in E-Saver Close Account - Enter Details Section
+    And I select the Transfer Type "<TransferType>" in E-Saver Close Account - Enter Details Section
+    And I select the Account category "<AcctCategory>" in E-Saver Close Account - Enter Details Section
+    And I select Favourite To Account "<FavToAcctIndex>" in E-Saver Close Account - Enter Details Section
+    And I key in the value "<RecipientRef>" in Recipient Reference field in E-Saver Close Account - Enter Details Section
+    And I key in the value "<Desc>" in Description field in E-Saver Close Account - Enter Details Section
+    And I click on Next button in E-Saver Close Account - Enter Details Section
+    Then Verify the  E-Saver Close Account - Confirm Details Section for third party account transfer
+
+    Examples: 
+      | AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | FavToAcctIndex | RecipientRef    | Desc            |
+      |               0 | Interest Rate    | 3rd Party HLB Account Transfer | Favorite     |              0 | EsaverClose3rdp | testCloseEsaver |
+
+  Scenario Outline: S027_TC11_Verify Close Account (3rd Party HLB Account Transfer) Acknowledgement screen [Favourite]
+    [
+    The Close Account (3rd Party HLB Account Transfer) Acknowledgement screen should show user as below
+    1. Reference Number informaiton 
+    2. Account information 
+    3. Product Information 
+    4. Settlement Balance information 
+    5. Closing Fee information 
+    6. Total Amount information 
+    7. Reason For Closing information 
+    8. Transfer Type information (3rd Party HLB Account Transfer)
+    9. To Account information 
+    10. Recipient Reference information and Done button
+    11. Message show "You've successfully closed your E-Saver account"
+    ]
+
+    When I select the Account Number "<AcctNumIndexVal>" in E-Saver Close Account - Enter Details Section
+    And I select the Reason for Closing "<ReasonForClosing>" in E-Saver Close Account - Enter Details Section
+    And I select the Transfer Type "<TransferType>" in E-Saver Close Account - Enter Details Section
+    And I select the Account category "<AcctCategory>" in E-Saver Close Account - Enter Details Section
+    And I select Favourite To Account "<FavToAcctIndex>" in E-Saver Close Account - Enter Details Section
+    And I key in the value "<RecipientRef>" in Recipient Reference field in E-Saver Close Account - Enter Details Section
+    And I key in the value "<Desc>" in Description field in E-Saver Close Account - Enter Details Section
+    And I click on Next button in E-Saver Close Account - Enter Details Section
+    And I key in TAC in  E-Saver Close Account - Confirm Details Section
+    And I click on Submit button in E-Saver Close Account - Confirm Details Section
+    Then Verify the success mesage in E-Saver Close Account - Acknowledgement Section
+      | You've successfully closed your E-Saver account. |
+    And Verify the other details in E-Saver Close Account - Acknowledgement Section - third party
+    And I click on Done button in E-Saver Close Account - Acknowledgement Section
+    Then I m navigated to home page
+
+    Examples: 
+      | AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | FavToAcctIndex | RecipientRef    | Desc            |
+      |               0 | Interest Rate    | 3rd Party HLB Account Transfer | Favorite     |              0 | EsaverClose3rdp | testCloseEsaver |
+
+  
+  Scenario Outline: S027_TC12_Verify Close Account (3rd Party HLB Account Transferr) with invalid TAC screen screen [Negative test]
+    [
+    The Close Account (3rd Party HLB Account Transfer) Confirmation detail screen should show and allow user as below
+    1. Account information 
+    2. Product Information 
+    3. Settlement Balance information 
+    4. Closing Fee information 
+    5. Total Amount information 
+    6. Reason For Closing information 
+    7. Transfer Type information (3rd Party HLB Account Transfer)
+    8. To Account information 
+    9. Recipient Reference information 
+    10. User to be key in the Enter with invalid TAC screen and then click submit
+    11. System will show message error "You've entered an invalid code. Please ensure you key in the correct code. (2076)"
+    ]
+
+    When I select the Account Number "<AcctNumIndexVal>" in E-Saver Close Account - Enter Details Section
+    And I select the Reason for Closing "<ReasonForClosing>" in E-Saver Close Account - Enter Details Section
+    And I select the Transfer Type "<TransferType>" in E-Saver Close Account - Enter Details Section
+    And I select the Account category "<AcctCategory>" in E-Saver Close Account - Enter Details Section
+    And I key in To Account "<ToAcct>" in E-Saver Close Account - Enter Details Section
+    And I key in the value "<RecipientRef>" in Recipient Reference field in E-Saver Close Account - Enter Details Section
+    And I key in the value "<Desc>" in Description field in E-Saver Close Account - Enter Details Section
+    And I click on Next button in E-Saver Close Account - Enter Details Section
+    And I key in invalid TAC in  E-Saver Close Account - Confirm Details Section
+    |123456|
+    And I click on Submit button in E-Saver Close Account - Confirm Details Section
+    Then Verify the error mesage in E-Saver Close Account - Confirm Details Section
+      | You've entered an invalid code. Please ensure you key in the correct code. (2076) |
+   
+
+    Examples: 
+      | AcctNumIndexVal | ReasonForClosing | TransferType                   | AcctCategory | ToAcct           | RecipientRef    | Desc            |
+      |               0 | Interest Rate    | 3rd Party HLB Account Transfer | Non-Favorite | 1010001000058932 | EsaverClose3rdp | testCloseEsaver |

@@ -9,6 +9,7 @@ com/qa/pages/HomePage.class
 com/qa/pages/ViewHistoryPage.class
 com/qa/pages/CASAAccountOverviewPage.class
 com/qa/pages/FixedDepositPlacementPage.class
+com/qa/stepDef/S029_PhysicalVirtualCard1StepDef.class
 com/qa/stepDef/S024_Esaver2StepDef.class
 com/qa/pages/LoginPage.class
 com/qa/pages/OverseasTransferPage.class
@@ -26,6 +27,7 @@ com/qa/pages/BlockUnBlockEcommercePage.class
 com/qa/pages/ResetPinPage.class
 com/qa/pages/BlockUnblockVirtualCardPage.class
 com/qa/stepDef/S017_TransferStepDef.class
+com/qa/stepDef/S028_Esaver6StepDef.class
 com/qa/pages/LogoutPage.class
 com/qa/stepDef/S002_LogoutStepDef.class
 com/qa/pages/MyQRPage.class
@@ -46,6 +48,7 @@ com/qa/stepDef/S003_LoginScreenStepDef.class
 com/qa/pages/PhysicalDebitCardOverviewPage.class
 com/qa/stepDef/S026_Esaver4StepDef.class
 com/qa/stepDef/S007_ForgotUsernamePasswordWithATMCardStepDef.class
+com/qa/pages/ESaverViewApplicationHistoryPage.class
 com/qa/pages/FixedDepositOverviewPage.class
 com/qa/pages/CreateUpdateNoteVirtualCardPage.class
 com/qa/stepDef/S008_CASAAccountOverviewStepDef.class

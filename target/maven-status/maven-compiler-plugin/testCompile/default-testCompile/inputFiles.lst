@@ -23,6 +23,7 @@
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/stepDef/S026_Esaver4StepDef.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/TransferToOwnAccountPage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/FixedDepositPlacementDetailPage.java
+/Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/stepDef/S029_PhysicalVirtualCard1StepDef.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/ResetHlbConnectPage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/stepDef/S014_Transfer1StepDef.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/stepDef/S022_WithdrawPlacementStepDef.java
@@ -64,12 +65,14 @@
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/stepDef/S017_TransferStepDef.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/ChangeDebitingAccountPage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/stepDef/S018_ViewHistoryStepDef.java
+/Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/ESaverViewApplicationHistoryPage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/PrivacyPolicyPage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/BasePage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/utils/DeleteFilesInDirectory.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/context/TestContext.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/SecurityPolicyPage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/SetDailyLimitPage.java
+/Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/stepDef/S028_Esaver6StepDef.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/HomePage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/OverseasTransferPage.java
 /Users/tvish/eclipse-workspace/KH.RIB.HLB/src/test/java/com/qa/pages/FixedDepositOverviewPage.java

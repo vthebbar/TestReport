@@ -189,7 +189,7 @@ public class BasePage {
 		return options;
 	}
 	
-	//File download to particular directory and delete
+	//Verify File download to particular directory 
 	public boolean performFileDownload() {
 		
 		File downloadDir = new File(System.getProperty("user.dir")+"/test-output/Downloads");
@@ -201,7 +201,7 @@ public class BasePage {
 		
 		
 	}
-	
+	//and delete files
 	public void performDeleteFiles() {
 		DeleteFilesInDirectory.deleteFiles();	
 	}

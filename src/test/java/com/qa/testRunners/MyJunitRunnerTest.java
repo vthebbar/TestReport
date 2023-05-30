@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		plugin = {"pretty", "json:target/cucumber/Jreport.json", "html:target/cucumber/Jreport.html","summary"},
-		features="src/test/resources/Features/S027_Esaver5.feature",
+		features="src/test/resources/Features/S029_Physical&VirtualCard1.feature",
 		glue={"com.qa.stepDef", "com.qa.hooks"},
 		dryRun=true,
 		monochrome=true,

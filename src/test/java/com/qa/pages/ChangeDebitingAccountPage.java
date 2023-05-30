@@ -16,13 +16,32 @@ public class ChangeDebitingAccountPage extends BasePage {
 		super(driver);
 	}
 
-	@FindBy(xpath="//select[@id='idAccountToLink']") private WebElement drpDownNewDebitAcct;
-	@FindBy(xpath="//input[@id='idBtnSubmit']") private WebElement btnNext;
+	// **** Details entry section ***
+	
+	@FindBy(xpath="//label[text()='Debit Card']/following-sibling::span") private WebElement txtDebitCard;
+	@FindBy(xpath="//label[text()='Current Debiting Account']/following-sibling::span") private WebElement txtCurrentDebitingAcct;
+	@FindBy(xpath="//label[text()='New Debiting Account']/following-sibling::span/select") private WebElement drpDownNewDebitAcct;
+	@FindBy(id="idBtnSubmit") private WebElement btnNext;
+	
+	
 	@FindBy(xpath="//li[@class='error-msg']") private WebElement txtErrMsg;
 	
+	
+	//**** Confirmation section
+	@FindBy(xpath="//label[normalize-space()='HLB Connect Password']") private WebElement lblPwd;
 	@FindBy(xpath="//input[@id='idFormCfmAckDtl:idPswd']") private WebElement txtHLBCPwd;
-	@FindBy(xpath="//input[@id='idFormCfmAckDtl:idBtnConfirmTrsf']") private WebElement btnSubmit;
+	@FindBy(xpath="//label[text()='Debit Card']/following-sibling::span") private WebElement txtDebitCardConfirm;
+	@FindBy(xpath="//label[text()='New Debiting Account']/following-sibling::span") private WebElement txtNewDebitAcctConfirm;
+	@FindBy(xpath="//a[text()='Back']") private WebElement btnBack;	
+	@FindBy(xpath="//input[@value='Submit']") private WebElement btnSubmit;
+
+	//**** Acknowledgement section
+	
 	@FindBy(xpath="//li[@class='success-msg']") private WebElement txtSuccessMsg;
+	@FindBy(xpath="//label[text()='Debit Card']/following-sibling::span") private WebElement txtDebitCardAck;
+	@FindBy(xpath="//label[text()='New Debiting Account']/following-sibling::span") private WebElement txtNewDebitAcctAck;
+	
+	@FindBy(xpath="//input[@value='Done']") private WebElement btnDone;
 	
 	
 	public void clickOnNextBtn() {
@@ -72,5 +91,36 @@ public class ChangeDebitingAccountPage extends BasePage {
 		
 		String actMsg = getText(txtErrMsg, "Error Message");
 		doAssertEqualsStrings(expMsg, actMsg, "Error message");
+	}
+	
+	
+	public void verifyDetailsEntrySection() {
+		
+		boolean flag=false;
+		
+		flag = isDisplayed(txtDebitCard,"") && isDisplayed(txtCurrentDebitingAcct,"") && isDisplayed(drpDownNewDebitAcct,"") && isDisplayed(btnNext,"");
+		doAssertEqualsBoolean(flag, true, "Enter details section elements displayed?");
+	}
+	
+	
+	public void verifyConfirmDetailsSection() {
+		
+		boolean flag=false;
+		
+		flag = isDisplayed(lblPwd,"") && isDisplayed(txtHLBCPwd,"") && isDisplayed(txtDebitCardConfirm,"") && isDisplayed(txtNewDebitAcctConfirm,"")
+				&& isDisplayed(btnBack,"") && isDisplayed(btnSubmit,"");
+		doAssertEqualsBoolean(flag, true, "Confirm details section elements displayed?");
+	}
+	
+	public void verifyAcknowledgenebtDetialsSection() {
+		
+		boolean flag=false;
+		
+		flag = isDisplayed(txtSuccessMsg,"") && isDisplayed(txtDebitCardAck,"") && isDisplayed(txtNewDebitAcctAck,"") && isDisplayed(btnDone,"");
+		doAssertEqualsBoolean(flag, true, "Acknowledgement details section elements displayed?");
+	}
+	
+	public void clickOnDoneBtn() {
+		doClick(btnDone, "Done button");
 	}
 }

@@ -109,17 +109,64 @@ public class S027_Esaver5StepDef {
 
 	//TC07
 	@When("I select the Account category {string} in E-Saver Close Account - Enter Details Section")
-	public void iSelectTheAccountCategoryInESaverCloseAccountEnterDetailsSection(String string) {
-	  
+	public void iSelectTheAccountCategoryInESaverCloseAccountEnterDetailsSection(String category) {
+		eSaverCloseAccountPage.selectAcctCategoryRadioBtn(category);
 	}
 
 	@When("I key in To Account {string} in E-Saver Close Account - Enter Details Section")
-	public void iKeyInToAccountInESaverCloseAccountEnterDetailsSection(String string) {
-	   
+	public void iKeyInToAccountInESaverCloseAccountEnterDetailsSection(String toAcct) {
+		eSaverCloseAccountPage.keyInToAcct(toAcct);
 	}
 
 	@When("I clear the value in Recipient Reference field in E-Saver Close Account - Enter Details Section")
 	public void iClearTheValueInRecipientReferenceFieldInESaverCloseAccountEnterDetailsSection() {
-	   
+		eSaverCloseAccountPage.clearRecRefField();
 	}
+	
+	//TC08
+	@When("I key in the value {string} in Recipient Reference field in E-Saver Close Account - Enter Details Section")
+	public void iKeyInTheValueInRecipientReferenceFieldInESaverCloseAccountEnterDetailsSection(String refRef) {
+		eSaverCloseAccountPage.keyInRecipientRef(refRef);
+	}
+
+	@When("I key in the value {string} in Description field in E-Saver Close Account - Enter Details Section")
+	public void iKeyInTheValueInDescriptionFieldInESaverCloseAccountEnterDetailsSection(String desc) {
+		eSaverCloseAccountPage.keyInDescription(desc);
+	}
+
+	@Then("Verify the  E-Saver Close Account - Confirm Details Section for third party account transfer")
+	public void verifyTheESaverCloseAccountConfirmDetailsSectionForThirdPartyAccountTransfer() {
+		eSaverCloseAccountPage.verifyConfirmDetailsSectionThirdPartyTransfer();
+	}
+	
+	//TC09
+	@When("I key in TAC in  E-Saver Close Account - Confirm Details Section")
+	public void iKeyInTACInESaverCloseAccountConfirmDetailsSection() {
+		eSaverCloseAccountPage.keyInValidTac();
+	}
+
+	@Then("Verify the other details in E-Saver Close Account - Acknowledgement Section - third party")
+	public void verifyTheOtherDetailsInESaverCloseAccountAcknowledgementSectionThirdParty() {
+		eSaverCloseAccountPage.verifyAcknowledgementSectionThirdPartyTransfer();
+	}
+
+	//TC10
+	@When("I select Favourite To Account {string} in E-Saver Close Account - Enter Details Section")
+	public void iSelectFavouriteToAccountInESaverCloseAccountEnterDetailsSection(String index) {
+	    
+		int indexVal = Integer.parseInt(index);
+		eSaverCloseAccountPage.selectFavToAcct(indexVal);
+	}
+	
+	//TC12
+	@When("I key in invalid TAC in  E-Saver Close Account - Confirm Details Section")
+	public void iKeyInInvalidTACInESaverCloseAccountConfirmDetailsSection(io.cucumber.datatable.DataTable dataTable) {
+		eSaverCloseAccountPage.keyInInvalidTac(dataTable.asList().get(0));
+	}
+
+	@Then("Verify the error mesage in E-Saver Close Account - Confirm Details Section")
+	public void verifyTheErrorMesageInESaverCloseAccountConfirmDetailsSection(io.cucumber.datatable.DataTable dataTable) {
+		eSaverCloseAccountPage.verifyInvalidTacErrMsg(dataTable.asList().get(0));
+	}
+
 }

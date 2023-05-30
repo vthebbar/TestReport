@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.qa.utils.PropertyManager;
+import com.qa.utils.TACManager;
+
 public class ESaverCloseAccountPage extends BasePage {
 
 	public ESaverCloseAccountPage(WebDriver driver) {
@@ -46,6 +49,8 @@ public class ESaverCloseAccountPage extends BasePage {
 	@FindBy(xpath = "//label[normalize-space()='Description']/following-sibling::span/input")
 	private WebElement txtDescription;
 
+	@FindBy(id="idPayeeAcctNo") private WebElement txtToAcct;
+	
 	// Error messages
 	@FindBy(xpath = "//span[@class='text-danger']")
 	private WebElement txtErrMsg;
@@ -75,6 +80,8 @@ public class ESaverCloseAccountPage extends BasePage {
 	@FindBy(xpath="//label[normalize-space()='Recipient Reference']/following-sibling::span") private WebElement txtRecipientRefTPConfirm;
 	@FindBy(xpath="//input[@type='password']") private WebElement txtTAC;
 	
+	//error
+	@FindBy(xpath="//li[@class='error-msg']") private WebElement txtErrMsgTac;
 	
 	// **** Acknowledgement section ****
 
@@ -147,6 +154,13 @@ public class ESaverCloseAccountPage extends BasePage {
 	}
 
 	public void clickOnNextBtn() {
+		
+		scrollToElement(driver,btnNext);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		doClick(btnNext, "Next button");
 	}
 
@@ -215,5 +229,105 @@ public class ESaverCloseAccountPage extends BasePage {
 				&& isDisplayed(btnNext, "");
 
 		doAssertEqualsBoolean(flag, true, "All fields displayed ?");
+	}
+	
+	
+	public void selectAcctCategoryRadioBtn(String category) {
+		if(category.equalsIgnoreCase("Favorite")){
+			doClick(radioBtnFavourite,"Favorite");
+		}
+		else if(category.equalsIgnoreCase("Non-Favorite")) {
+			
+			doClick(radioBtnNonFavourite,"Non-Favorite");
+		}
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void keyInToAcct(String toAcct) {
+		doSendKeys(txtToAcct,toAcct, "To Account number");
+	}
+	
+	public void clearRecRefField() {
+		clearField(txtRecipientRef,"");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void keyInRecipientRef(String recRef) {
+		clearField(txtRecipientRef,"");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		doSendKeys(txtRecipientRef,recRef,"Recipient reference");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void keyInDescription(String desc) {
+		doSendKeys(txtDescription,desc,"Description");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void verifyConfirmDetailsSectionThirdPartyTransfer() {
+		boolean flag = false;
+
+		flag = isDisplayed(txtAccountConfirm, "") && isDisplayed(txtProductConfirm, "") && isDisplayed(txtSettlementBalanceUSDConfirm, "")
+				&& isDisplayed(txtClosingFeeUSDConfirm, "") && isDisplayed(txtTotalAmtUSDConfirm, "")
+				&& isDisplayed(txtReasonForClosingConfirm, "") && isDisplayed(txtTransferTypeConfirm, "")
+				&& isDisplayed(txtToAcctConfirm, "") && isDisplayed(txtRecipientRefTPConfirm,"") && isDisplayed(txtTAC,"");
+				
+
+		doAssertEqualsBoolean(flag, true, "All fields displayed ?");
+	}
+	
+	public void keyInValidTac() {
+		
+		String userName = PropertyManager.propertyLoader().getProperty("userName");
+		TACManager tacManager = new TACManager();
+		String tac = tacManager.getTacCode(driver, userName);
+		doSendKeys(txtTAC, tac, "TAC code");
+	}
+	
+	
+	public void verifyAcknowledgementSectionThirdPartyTransfer() {
+		boolean flag = false;
+
+		flag = isDisplayed(txtSuccessMsg, "") && isDisplayed(txtRefNumAck, "") && isDisplayed(txtAcctNumAck, "")
+				&& isDisplayed(txtProductAck, "") && isDisplayed(txtSettlementBalanceUSDAck, "")
+				&& isDisplayed(txtClosingFeeUSDAck, "") && isDisplayed(txtTotalAmtUSDAck, "")
+				&& isDisplayed(txtReasonForClosingAck, "") && isDisplayed(txtTransferTypeAck,"") && isDisplayed(txtToAcctAck,"") && isDisplayed(btnDone, "");
+				
+
+		doAssertEqualsBoolean(flag, true, "All fields displayed ?");
+	}
+	
+	public void selectFavToAcct(int index) {
+		selectDropDownyIndex(dropDownThirdPartyAcctNum, index);
+	}
+	
+	public void verifyInvalidTacErrMsg(String expVal) {
+		String actVal = getText(txtErrMsgTac,"Error message Invalid TAC");
+		doAssertEqualsStrings(actVal, expVal, "Error message Invalid TAC is correct?");
+	}
+	
+	public void keyInInvalidTac(String invalidTAc) {
+		doSendKeys(txtTAC,invalidTAc,"Invalid TAC" );
 	}
 }

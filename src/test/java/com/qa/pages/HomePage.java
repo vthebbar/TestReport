@@ -62,6 +62,32 @@ public class HomePage extends BasePage {
 	@FindBy(xpath="//span[normalize-space()='View Application History']") private WebElement subMenuViewApplicationHistory;
 
 	
+	//Physical & Virtual Card menu , submenus
+	@FindBy(xpath="//span[normalize-space()='Physical & Virtual Card']") private WebElement menuPhysicalAndVirtualCard;
+	
+	@FindBy(xpath="//span[normalize-space()='Physical Card']") private WebElement lblPhysicalCard;
+	@FindBy(xpath="//span[normalize-space()='Virtual Card']") private WebElement lblVirtualCard;
+	
+	//physical card
+	@FindBy(xpath="//a[@href='/rib/app/fo/dbc/blockcard']//span[@class='d-inline-block align-middle']") private WebElement submenuBlockUnblockPhy;
+	@FindBy(xpath="//span[normalize-space()='Block/Unblock E-commerce']") private WebElement subMenuBlockUnblockEcommerce;
+	@FindBy(xpath="//span[normalize-space()='Block/Unblock Overseas ATM/POS']") private WebElement subMenuBlockUnblockOverseasATMPOS;
+	@FindBy(xpath="//a[@href='/rib/app/fo/dbc/chgdefaultacct']//span[@class='d-inline-block align-middle'][normalize-space()='Change Debiting Account']") private WebElement subMenuChangeDebitingAcct;
+	@FindBy(xpath="//a[@href='/rib/app/fo/dbc/maxpurchslmt']//span[@class='d-inline-block align-middle'][normalize-space()='Set Daily Limit']") private WebElement subMenuSetDailyLimitPhy;
+	@FindBy(xpath="//span[normalize-space()='Travel Notification Service']") private WebElement subMenuTravelNotificationService;
+	@FindBy(xpath="//span[contains(text(),'Request Card Renewal')]") private WebElement subMenuRequestCardRenewal;
+	@FindBy(xpath="//span[normalize-space()='Report Card Lost/Stolen']") private WebElement subMenuReportCardLostStolen;
+	@FindBy(xpath="//span[normalize-space()='Reset PIN']") private WebElement subMenuResetPIN;
+	
+	//virtual card
+	@FindBy(xpath="//span[normalize-space()='Create']") private WebElement subMenuCreate;
+	@FindBy(xpath="//a[@href='/rib/app/fo/dbc/blockvirtcard']//span[@class='d-inline-block align-middle']") private WebElement subMenuBlockUnblockVir;
+	@FindBy(xpath="//a[@href='/rib/app/fo/dbc/blockvirtcard']//span[@class='d-inline-block align-middle']") private WebElement subMenuChangeDeibtingAcctVir;
+	@FindBy(xpath="//a[@href='/rib/app/fo/dbc/maxvirtpurchslmt']//span[@class='d-inline-block align-middle'][normalize-space()='Set Daily Limit']") private WebElement subMenuSetDailiLimitVir;
+	@FindBy(xpath="//span[normalize-space()='Create/Update Note']") private WebElement subMenuCreateUpdateNote;
+
+		
+	
 	//Quick Access section
 	
 	@FindBy(xpath="//div[normalize-space()='Quick Access']") private WebElement lblQuickAccessHeader;
@@ -331,6 +357,51 @@ public ESaverCloseAccountPage clickOnEsaverCloseAccountSubMenu() {
 	doClick(subMenuCloseAcct, "Personalize Account");
 
 	return new ESaverCloseAccountPage(driver);
+}
+//S028
+public ESaverViewApplicationHistoryPage clickOnViewApplicationHistorySubMenu() {
+	doClick(subMenuViewApplicationHistory, "View Application History");
+
+	return new ESaverViewApplicationHistoryPage(driver);
+}
+
+//S029
+public void clickOnPhysicalAndVirtualCardMenu() {
+	doClick(menuPhysicalAndVirtualCard, "Physical & Virtual Card menu");
+}
+
+public void verifyPhysicalAndVirtualCardSubMenus() {
+	
+	boolean flag = false;
+	
+	flag = isDisplayed(lblPhysicalCard,"") && isDisplayed(lblVirtualCard,"") && isDisplayed(submenuBlockUnblockPhy,"") && isDisplayed(subMenuBlockUnblockEcommerce,"") &&
+			isDisplayed(subMenuBlockUnblockOverseasATMPOS,"") && isDisplayed(subMenuChangeDebitingAcct,"") && isDisplayed(subMenuSetDailyLimitPhy,"") &&
+			isDisplayed(subMenuTravelNotificationService,"") && isDisplayed(subMenuRequestCardRenewal,"") && isDisplayed(subMenuReportCardLostStolen,"") &&
+			isDisplayed(subMenuResetPIN,"")  && isDisplayed(subMenuCreate,"") && isDisplayed(subMenuBlockUnblockVir,"") && isDisplayed(subMenuChangeDeibtingAcctVir,"")
+			&& isDisplayed(subMenuSetDailiLimitVir,"") && isDisplayed(subMenuCreateUpdateNote,"");
+	
+	doAssertEqualsBoolean(flag, true, "All sub menus and labels displayed ?");
+}
+
+public BlockUnblockPhysicalDebitCardPage clickOnBlockUnblockMenuPhysicalCard() {
+	
+	doClick(submenuBlockUnblockPhy,"Block/Unblock physical card");
+	return new BlockUnblockPhysicalDebitCardPage(driver);
+}
+
+public BlockUnBlockEcommercePage clickOnBlockUnblockEcommercePhycialCard() {
+	doClick(subMenuBlockUnblockEcommerce,"Block/Unblock E-commerce");
+	return new BlockUnBlockEcommercePage(driver);
+}
+
+public BlockUnblockOverseasATMPOSPage clcikOnBlockUnBlockOverseasATMPOSPhysicalCard() {
+	doClick(subMenuBlockUnblockOverseasATMPOS,"Block/Unblock Overseas ATM POS");
+	return new BlockUnblockOverseasATMPOSPage(driver);
+}
+
+public ChangeDebitingAccountPage clickOnChangeDebitingAccountSubMenu() {
+	doClick(subMenuChangeDebitingAcct,"Change Debiting Account");
+	return new ChangeDebitingAccountPage(driver);
 }
 
 }

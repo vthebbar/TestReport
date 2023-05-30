@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		plugin = {"pretty","html:target/cucumber/Cucumber_report.html","json:target/cucumber/Cucumber_report.json","summary",
 				"rerun:target/failed.txt" },
-		features="src/test/resources/Features/S027_Esaver5.feature",
+		features="src/test/resources/Features/S029_Physical&VirtualCard1.feature",
 		glue={"com.qa.stepDef", "com.qa.hooks"},
 		dryRun=false,
 		monochrome=true,
