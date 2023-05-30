@@ -10,16 +10,24 @@ import org.apache.pdfbox.text.PDFTextStripper;
 
 public class PDFReader {
 
-	public static String getPdfContent(String url) throws IOException {
-
+	public static String getPdfContent(String url)  {
+		
+		String stripText=null;
+		
+		try {
 		 URL pdfURL = new URL(url);
 	     InputStream is = pdfURL.openStream();
 		 BufferedInputStream bis = new BufferedInputStream(is);
 		 PDDocument doc = PDDocument.load(bis);
 		 PDFTextStripper strip = new PDFTextStripper();
-		 String stripText = strip.getText(doc);
+		 stripText = strip.getText(doc);
 		 System.out.println(stripText);
 		 doc.close();
+		}
+		catch(Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
 		 return stripText;
        }
 }

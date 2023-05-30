@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import com.qa.context.TestContext;
 import com.qa.factory.DriverFactory;
+import com.qa.factory.PageObjectFactory;
 import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
 import com.qa.pages.LogoutPage;
@@ -15,17 +17,25 @@ import com.qa.pages.LogoutPage;
 import io.cucumber.java.en.*;
 
 public class S002_LogoutStepDef {
-	WebDriver driver;
-	HomePage homePage;
-	LogoutPage logoutPage;
-	LoginPage loginPage;
+	private WebDriver driver;
+	private LoginPage loginPage;
+	private HomePage homePage;
+	private LogoutPage logoutPage;
+	
+	public S002_LogoutStepDef(TestContext context) {
+		
+		driver = context.driver;
+		loginPage = PageObjectFactory.getLoginPage(driver);
+		homePage = PageObjectFactory.getHomePage(driver);
+		logoutPage = PageObjectFactory.getLogoutPage(driver);
+	}
 	
 	@Given("I m logged in")
 	public void iMLoggedIn() throws InterruptedException {
 
-		driver = DriverFactory.getDriver();
+		//driver = DriverFactory.getDriver();
 		
-		loginPage = new LoginPage(driver);
+		//loginPage = new LoginPage(driver);
 		loginPage.doLogin();
 		
 //		  driver.get("https://t1uat.hongleongconnect.com.kh/rib/app/fo/login?t=1");
@@ -43,7 +53,7 @@ public class S002_LogoutStepDef {
 	@When("I click on Logout button")
 	public void iClickOnLogoutButton() {
 		//driver.findElement(By.xpath("//a[normalize-space()='Logout']")).click();
-		new HomePage(driver).clikLogoutBtn();
+		homePage.clikLogoutBtn();
 	}
 
 	@Then("I should be loggedout successfully")
@@ -56,7 +66,7 @@ public class S002_LogoutStepDef {
 	    //
 	    // For other transformations you can register a DataTableType.
 		List<Map<String, String>> message=dataTable.asMaps();
-		new LogoutPage(driver).verifyLogoutMessage(message.get(0).get("resultMessage"));
+		logoutPage.verifyLogoutMessage(message.get(0).get("resultMessage"));
 		
 	}
 }
