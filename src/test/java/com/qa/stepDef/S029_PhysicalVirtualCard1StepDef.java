@@ -9,6 +9,7 @@ import com.qa.pages.BlockUnblockOverseasATMPOSPage;
 import com.qa.pages.BlockUnblockPhysicalDebitCardPage;
 import com.qa.pages.ChangeDebitingAccountPage;
 import com.qa.pages.HomePage;
+import com.qa.pages.SetDailyLimitPage;
 
 import io.cucumber.java.en.*;
 
@@ -20,6 +21,8 @@ public class S029_PhysicalVirtualCard1StepDef {
 	private BlockUnBlockEcommercePage blockUnBlockEcommercePage;
 	private BlockUnblockOverseasATMPOSPage blockUnblockOverseasATMPOSPage;
 	private ChangeDebitingAccountPage changeDebitingAccountPage;
+	private SetDailyLimitPage setDailyLimitPage;
+	
 	
 	public S029_PhysicalVirtualCard1StepDef(TestContext context) {
 		driver = context.driver;
@@ -28,6 +31,7 @@ public class S029_PhysicalVirtualCard1StepDef {
 		blockUnBlockEcommercePage = PageObjectFactory.getBlockUnBlockEcommercePage(driver);
 		blockUnblockOverseasATMPOSPage = PageObjectFactory.getBlockUnblockOverseasATMPOSPage(driver);
 		changeDebitingAccountPage = PageObjectFactory.getChangeDebitingAccountPage(driver);
+		setDailyLimitPage = PageObjectFactory.getSetDailyLimitPage(driver);
 	}
 	
 	@And("I m on Physical & Virtual Card Overview Section")
@@ -222,4 +226,100 @@ public class S029_PhysicalVirtualCard1StepDef {
 	}
 
 	//TC11
+	@When("I click on Set Daily Limit Submeu for physical card")
+	public void iClickOnSetDailyLimitSubmeuForPhysicalCard() {
+		homePage.clickOnSetDailyLimitSubMenuPhysicalCard();
+	}
+
+	@Then("Verify Debit Card is displayed in Set Daily Limit - Enter Details section")
+	public void verifyDebitCardIsDisplayedInSetDailyLimitEnterDetailsSection() {
+		setDailyLimitPage.verifyDebitCardIsDisplayed();
+	}
+
+	@Then("Verify labels Transaction Type, Max Daily Limit, Current Daily Limit and New Daily Limit are displayed")
+	public void verifyLabelsTransactionTypeMaxDailyLimitCurrentDailyLimitAndNewDailyLimitAreDisplayed() {
+		setDailyLimitPage.verifyTableHeadersAreDisplayed();
+	}
+
+	@Then("Verify Purchase Limit label and values are displayed in Set Daily Limit Screen - Enter Details section")
+	public void verifyPurchaseLimitLabelAndValuesAreDisplayedInSetDailyLimitScreenEnterDetailsSection() {
+		setDailyLimitPage.verifyPurchaseLimitValuesDisplayed();
+	}
+
+	@Then("Verify Withdrawal Limit label and values are displayed in Set Daily Limit Screen - Enter Details section")
+	public void verifyWithdrawalLimitLabelAndValuesAreDisplayedInSetDailyLimitScreenEnterDetailsSection() {
+		setDailyLimitPage.verifyWithdrawlLimitValuesDisplayed();
+	}
+	
+	//TC12
+	@When("Key in New Daily Purchase Limit value USD in Set Daily Limit - Enter Details section")
+	public void keyInNewDailyPurchaseLimitValueUSDInSetDailyLimitEnterDetailsSection(io.cucumber.datatable.DataTable dataTable) {
+		setDailyLimitPage.keyInPurchaseLimit(dataTable.asList().get(0));
+	}
+
+	@Then("Verify the error message displayed in Set Daily Limit - Enter Details section")
+	public void verifyTheErrorMessageDisplayedInSetDailyLimitEnterDetailsSection(io.cucumber.datatable.DataTable dataTable) {
+		setDailyLimitPage.verifyErrorMsg(dataTable.asList().get(0));
+	}
+
+	//TC14
+	@When("Key in New Daily Withdrawl Limit value USD in Set Daily Limit - Enter Details section")
+	public void keyInNewDailyWithdrawlLimitValueUSDInSetDailyLimitEnterDetailsSection(io.cucumber.datatable.DataTable dataTable) {
+		setDailyLimitPage.keyInWithdrawlLimit(dataTable.asList().get(0));
+	}
+
+	//TC16
+	@When("I key in New Daily Purchase limit and New Daily WithDrawl Limit in Set Daily Limit - Enter Details section")
+	public void iKeyInNewDailyPurchaseLimitAndNewDailyWithDrawlLimitInSetDailyLimitEnterDetailsSection() {
+		setDailyLimitPage.keyInValidPurchaseLimit();
+		setDailyLimitPage.keyInNewWithDrawlLimit();
+	}
+
+	@When("I click on Next button in Set Daily Limit - Enter Details section")
+	public void iClickOnNextButtonInSetDailyLimitEnterDetailsSection() {
+		setDailyLimitPage.clickOnNextbtn();
+	}
+
+	@Then("Verify the Set Daily Limit - Confirm Details section")
+	public void verifyTheSetDailyLimitConfirmDetailsSection() {
+		setDailyLimitPage.verifyConfirmDetailsSection();
+	}
+	
+	//TC17
+	@When("I key in valid TAC in Set Daily Limit - Confirm Details section")
+	public void iKeyInValidTACInSetDailyLimitConfirmDetailsSection() {
+		setDailyLimitPage.keyInTac();
+	}
+
+	@When("I click on Submit button in Set Daily Limit - Confirm Details section")
+	public void iClickOnSubmitButtonInSetDailyLimitConfirmDetailsSection() {
+		setDailyLimitPage.clickOnSubmitBtn();
+	}
+
+	@Then("Verify the success message in Set Daily Limit - Acknowledgement section")
+	public void verifyTheSuccessMessageInSetDailyLimitAcknowledgementSection(io.cucumber.datatable.DataTable dataTable) {
+		setDailyLimitPage.verifyResult(dataTable.asList().get(0));
+	}
+
+	@Then("Verify that other acknowledgement details are displayed")
+	public void verifyThatOtherAcknowledgementDetailsAreDisplayed() {
+		setDailyLimitPage.verifyAcknowledgementSection();
+	}
+
+	@Then("I click on Done button in Set Daily Limit - Acknowledgement section")
+	public void iClickOnDoneButtonInSetDailyLimitAcknowledgementSection() {
+		setDailyLimitPage.clickOnDoneBtn();
+	}
+
+	//TC18
+	@When("I key in invalid TAC in Set Daily Limit - Confirm Details section")
+	public void iKeyInInvalidTACInSetDailyLimitConfirmDetailsSection(io.cucumber.datatable.DataTable dataTable) {
+		setDailyLimitPage.keyInInvalidTac(dataTable.asList().get(0));
+	}
+
+	@Then("Verify the error message in Set Daily Limit - Confirm Details section")
+	public void verifyTheErrorMessageInSetDailyLimitConfirmDetailsSection(io.cucumber.datatable.DataTable dataTable) {
+		setDailyLimitPage.verifyErrorMsg(dataTable.asList().get(0));
+	}
+
 }
