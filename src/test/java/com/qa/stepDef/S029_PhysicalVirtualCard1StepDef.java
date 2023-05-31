@@ -321,5 +321,66 @@ public class S029_PhysicalVirtualCard1StepDef {
 	public void verifyTheErrorMessageInSetDailyLimitConfirmDetailsSection(io.cucumber.datatable.DataTable dataTable) {
 		setDailyLimitPage.verifyErrorMsg(dataTable.asList().get(0));
 	}
+	
+	//TC20
+	
+	@When("I click on Travel Notification Services submenu for physical card")
+	public void iClickOnTravelNotificationServicesSubmenuForPhysicalCard() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
 
+	@Then("Verify all specified details are displayed in Travel Notification Services - Enter Details section")
+	public void verifyAllSpecifiedDetailsAreDisplayedInTravelNotificationServicesEnterDetailsSection() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I click on Travel Notification Service submenu for physical card")
+	public void iClickOnTravelNotificationServiceSubmenuForPhysicalCard() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I select {string} , {string} , {string} in Travel Notification Services - Enter Details Section")
+	public void iSelectInTravelNotificationServicesEnterDetailsSection(String string, String string2, String string3) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I click on Next button in Travel Notification Services - Enter Details Section")
+	public void iClickOnNextButtonInTravelNotificationServicesEnterDetailsSection() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I click on Submit button in Travel Notification Services - Confirm Details Section")
+	public void iClickOnSubmitButtonInTravelNotificationServicesConfirmDetailsSection() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Verify Success message is displayed in Travel Notification Services - Acknowledgement Section")
+	public void verifySuccessMessageIsDisplayedInTravelNotificationServicesAcknowledgementSection(io.cucumber.datatable.DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	    //
+	    // For other transformations you can register a DataTableType.
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Verify other details are displayed in Travel Notification Services - Acknowledgement Section")
+	public void verifyOtherDetailsAreDisplayedInTravelNotificationServicesAcknowledgementSection() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I click on Done button in Travel Notification Services - Acknowledgement Section")
+	public void iClickOnDoneButtonInTravelNotificationServicesAcknowledgementSection() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
 }
