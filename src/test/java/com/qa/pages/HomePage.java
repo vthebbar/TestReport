@@ -404,4 +404,10 @@ public ChangeDebitingAccountPage clickOnChangeDebitingAccountSubMenu() {
 	return new ChangeDebitingAccountPage(driver);
 }
 
+public SetDailyLimitPage clickOnSetDailyLimitSubMenuPhysicalCard() {
+	
+	doClick(subMenuSetDailyLimitPhy, "Set Daily Limit");
+	return new SetDailyLimitPage(driver);
+}
+
 }
