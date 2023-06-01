@@ -157,8 +157,8 @@ Feature: S029_Physical & Virtual Card Section, Physical Card Operations
 
     When I click on Travel Notification Services submenu for physical card
     Then Verify all specified details are displayed in Travel Notification Services - Enter Details section
-	
-	@TEST
+
+  @TEST
   Scenario Outline: S029_TC20_Verify Create Travel Notification functionality
     When I click on Travel Notification Service submenu for physical card
     And I select "<startDate>" , "<endDate>" , "<destinationCountry>" in Travel Notification Services - Enter Details Section
@@ -171,4 +171,6 @@ Feature: S029_Physical & Virtual Card Section, Physical Card Operations
     Then I m navigated to home page
 
     Examples: 
-      | startDate | endDate | destinationCountry |
+      | startDate   | endDate     | destinationCountry |
+      | 10-Dec-2023 | 20-Dec-2023 | INDIA              |
+      
